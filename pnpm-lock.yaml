@@ -1,0 +1,23 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      gnim:
+        specifier: '*'
+        version: 1.9.1
+
+packages:
+
+  gnim@1.9.1:
+    resolution: {integrity: sha512-WttkzzZg17qrJKGk87HlE1zHKUdYoimSqjmsULt4C6DNq3JfYSPhYNjwUjBMHFpzZMbyUVHgpTTW6IIehme9tQ==}
+    engines: {gjs: '>=1.79.0'}
+
+snapshots:
+
+  gnim@1.9.1: {}
