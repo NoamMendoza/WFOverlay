@@ -45,14 +45,28 @@ export const PriceContent = ({ itemUrl }: { itemUrl: string }) => {
 export const PriceOverlay = (monitor = 0) => {
   return (
     <window
-      visible
+      visible={false}
       monitor={monitor}
       application={app}
       name="price-overlay"
       class="price-overlay-window"
       anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
+      onCloseRequest={(self) => {
+        self.visible = false;
+        return true;
+      }}
     >
-      <PriceContent itemUrl="glaive_prime_set" />
+    <box orientation={Gtk.Orientation.VERTICAL}>
+        <button
+          label="✕"
+          halign={Gtk.Align.END}
+          onClicked={(self) => {
+            const win = self.get_root() as Astal.Window;
+            win.visible = false;
+          }}
+        />
+        <PriceContent itemUrl="glaive_prime_set" />
+      </box>
     </window>
   );
 };
