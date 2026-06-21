@@ -1,20 +1,352 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{"@theme_fg_color"};
-$bg-color: #{"@theme_bg_color"};
+@use "sass:color";
 
-window.Bar {
-  background: transparent;
-  color: $fg-color;
-  font-weight: bold;
+// ===== Paleta: inspirada en Orokin (Warframe) =====
+// Dark: void-purple profundo + dorado Orokin
+// Light: marfil cálido + el mismo dorado como acento
 
-  > centerbox {
-    background: $bg-color;
-    border-radius: 10px;
-    margin: 8px;
+$void-950: #0e0b16;
+$void-900: #15101f;
+$void-800: #1f1830;
+$void-700: #2c2240;
+$void-600: #3d2f57;
+$gold-400: #d9b35c;
+$gold-500: #c79a3f;
+$ivory-50: #f7f3ec;
+$ivory-100: #ece4d4;
+$ivory-200: #ddd0b4;
+$bone-700: #4a4234;
+$bone-900: #2b2618;
+$status-green: #6fae6f;
+$status-red: #c0564f;
+
+window {
+  font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+}
+
+// ---------- TEMA OSCURO ----------
+.theme-dark {
+  background-color: $void-950;
+  color: $ivory-100;
+
+  .sidebar {
+    background-color: $void-900;
+    border-right: 1px solid $void-700;
+    padding: 16px 8px;
+    min-width: 180px;
   }
 
-  button {
+  .sidebar-title {
+    color: $gold-400;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 16px;
+    padding: 4px 8px;
+  }
+
+  .sidebar-item {
+    background-color: transparent;
+    color: $ivory-200;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+
+    &:hover {
+      background-color: $void-700;
+      color: $gold-400;
+    }
+  }
+
+  .section-content {
+    padding: 24px;
+  }
+
+  .section-title {
+    color: $gold-400;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .connection-status {
+    background-color: $void-800;
+    border: 1px solid $void-600;
     border-radius: 8px;
-    margin: 2px;
+    padding: 12px;
   }
+
+  .status-ok label {
+    color: $status-green;
+  }
+
+  .status-error label {
+    color: $status-red;
+  }
+
+  .status-path,
+  .status-hint {
+    color: $ivory-200;
+    font-size: 11px;
+  }
+
+  .warframe-card {
+    background-color: $void-800;
+    border: 1px solid $void-600;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 130px;
+    min-height: 80px;
+
+    &:hover {
+      border-color: $gold-500;
+    }
+  }
+
+  .warframe-card-image {
+    margin-bottom: 4px;
+  }
+
+  .warframe-card-image-placeholder {
+    min-width: 96px;
+    min-height: 96px;
+    background-color: $void-700;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+
+  .vaulted-badge {
+    background-color: rgba(14, 11, 22, 0.85);
+    border-radius: 4px;
+    padding: 1px 4px;
+    font-size: 10px;
+  }
+
+  .part-chip-row {
+    margin-top: 4px;
+  }
+
+  .part-chip {
+    min-width: 18px;
+    min-height: 18px;
+    background-color: $void-700;
+    color: $ivory-200;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 10px;
+
+    &:hover {
+      background-color: $void-600;
+    }
+  }
+
+  .part-chip-owned {
+    background-color: $status-green;
+    color: $void-950;
+  }
+
+  .card-footer {
+    margin-top: 6px;
+  }
+
+  .footer-btn {
+    background-color: $void-700;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+
+    &:hover {
+      background-color: $void-600;
+    }
+  }
+
+  .footer-btn-active {
+    background-color: $gold-500;
+  }
+
+  .warframe-card-name {
+    color: $ivory-50;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .warframe-status-btn {
+    background-color: $void-700;
+    border-radius: 6px;
+    padding: 4px 6px;
+    font-size: 11px;
+
+    &:hover {
+      background-color: $void-600;
+    }
+  }
+}
+
+// ---------- TEMA CLARO ----------
+.theme-light {
+  background-color: $ivory-50;
+  color: $bone-900;
+
+  .sidebar {
+    background-color: $ivory-100;
+    border-right: 1px solid $ivory-200;
+    padding: 16px 8px;
+    min-width: 180px;
+  }
+
+  .sidebar-title {
+    color: $gold-500;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 16px;
+    padding: 4px 8px;
+  }
+
+  .sidebar-item {
+    background-color: transparent;
+    color: $bone-700;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+
+    &:hover {
+      background-color: $ivory-200;
+      color: $gold-500;
+    }
+  }
+
+  .section-content {
+    padding: 24px;
+  }
+
+  .section-title {
+    color: $gold-500;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .connection-status {
+    background-color: $ivory-100;
+    border: 1px solid $ivory-200;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .status-ok label {
+    color: $status-green;
+  }
+
+  .status-error label {
+    color: $status-red;
+  }
+
+  .status-path,
+  .status-hint {
+    color: $bone-700;
+    font-size: 11px;
+  }
+
+  .warframe-card {
+    background-color: $ivory-100;
+    border: 1px solid $ivory-200;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 130px;
+    min-height: 80px;
+
+    &:hover {
+      border-color: $gold-500;
+    }
+  }
+
+  .warframe-card-image {
+    margin-bottom: 4px;
+  }
+
+  .warframe-card-image-placeholder {
+    min-width: 96px;
+    min-height: 96px;
+    background-color: $ivory-200;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+
+  .vaulted-badge {
+    background-color: rgba(247, 243, 236, 0.9);
+    border-radius: 4px;
+    padding: 1px 4px;
+    font-size: 10px;
+  }
+
+  .part-chip-row {
+    margin-top: 4px;
+  }
+
+  .part-chip {
+    min-width: 18px;
+    min-height: 18px;
+    background-color: $ivory-200;
+    color: $bone-700;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 10px;
+
+    &:hover {
+      background-color: color.scale($ivory-200, $lightness: -8%);
+    }
+  }
+
+  .part-chip-owned {
+    background-color: $status-green;
+    color: $ivory-50;
+  }
+
+  .card-footer {
+    margin-top: 6px;
+  }
+
+  .footer-btn {
+    background-color: $ivory-200;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+
+    &:hover {
+      background-color: color.scale($ivory-200, $lightness: -8%);
+    }
+  }
+
+  .footer-btn-active {
+    background-color: $gold-500;
+  }
+
+  .warframe-card-name {
+    color: $bone-900;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .warframe-status-btn {
+    background-color: $ivory-200;
+    border-radius: 6px;
+    padding: 4px 6px;
+    font-size: 11px;
+
+    &:hover {
+      background-color: color.scale($ivory-200, $lightness: -8%);
+    }
+  }
+}
+
+// ---------- Overlay de precios (siempre oscuro, flota encima) ----------
+.price-overlay-window {
+  background-color: rgba(14, 11, 22, 0.92);
+  border: 1px solid $gold-500;
+  border-radius: 10px;
+}
+
+.price-overlay-box {
+  padding: 12px;
+  color: $ivory-100;
 }
